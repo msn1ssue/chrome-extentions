@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Percentage",
+    "description": "Allowed percentage",
+    "version": "1.0",
+    "content_scripts":[
+        {
+        "matches":[
+            "http://tsetmc.com/*",
+            "http://www.tsetmc.ir/*"
+        ],
+        "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "icon.jpg",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+        },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "https://ajax.googleapis.com/"
+    ]
+}
+  
