@@ -7,6 +7,7 @@
         {
         "matches":[
             "http://tsetmc.com/*",
+            "http://www.tsetmc.com/*",
             "http://www.tsetmc.ir/*"
         ],
         "js": ["content.js"]

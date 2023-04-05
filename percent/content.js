@@ -1,5 +1,6 @@
 let iter = 7
 setTimeout(main, 1000)
+setInterval(sarane_haghighi, 1000)
 
 function main(){
     
@@ -29,4 +30,26 @@ function main(){
     
     allowed_percentage = Math.ceil(100*(max_price - yesterday_price) / yesterday_price)
     document.evaluate(max_price_selector,document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerHTML += '<b> ('+allowed_percentage+'%) </b>'
+
+}
+
+function sarane_haghighi(){
+    //console.log("Trying Sarane ")
+    real_valume = document.querySelector("#e0 > div:nth-child(1)").attributes['title'].value
+    real_valume = parseInt(real_valume.replaceAll(',', ''))
+
+    real_count = parseInt(document.querySelector("#e5").textContent.replaceAll(',',''))
+    price = parseInt(document.querySelector("#d03").textContent.replaceAll(',', ''))
+
+    sarane = parseInt(( real_valume / real_count ) * price / 10)
+    // sarane = Intl.NumberFormat().format(sarane)
+    units = ['', 'K', 'M', 'B']
+    unit = 0
+    while(sarane > 1000 && unit<3){
+        sarane /= 1000;
+        unit ++
+    }
+    sarane = Intl.NumberFormat( ).format(parseInt(sarane))
+    sarane = ' {' + sarane + ' ' + units[unit] + 'T} '
+    document.querySelector("#e5").innerHTML = real_count + '<b>'+sarane+'</b>'
 }
