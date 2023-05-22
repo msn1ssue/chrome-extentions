@@ -6,7 +6,7 @@
     "content_scripts":[
         {
         "matches":[
-            "http://tsetmc.com/*",
+            "http://*.tsetmc.com/*",
             "http://www.tsetmc.com/*",
             "http://www.tsetmc.ir/*"
         ],
