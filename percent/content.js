@@ -49,19 +49,12 @@ function main(){
 
 function sarane_haghighi(){
     //console.log("Trying Sarane ")
-    real_valume = document.querySelector("#e0 > div:nth-child(1)").attributes['title']
-    if (!real_valume)
-        real_valume = document.querySelector("#e0 > div > div:nth-child(1)").attributes['title']
-        
-    real_valume = real_valume.value
-    real_valume = parseInt(real_valume.replaceAll(',', ''))
-
-    real_count = document.querySelector("#e5")
-    if(!real_count){
-        real_count = document.querySelector("#TopBox > div.box2.zi2 > div:nth-child(1) > table > tbody > tr:nth-child(6) > td:nth-child(2) > div > div")
-    }
-    real_count = parseInt(real_count.textContent.replaceAll(',',''))
-
+    try{real_valume = parseInt(document.querySelector("#e0 > div:nth-child(1)").attributes['title'].value.replaceAll(',', ''))}
+    catch{real_valume = parseInt(document.querySelector("#e0 > div > div:nth-child(1)").attributes['title'].value.replaceAll(',', ''))}
+    
+    try{real_count = parseInt(document.querySelector("#e5").textContent.replaceAll(',',''))}
+    catch{real_count = parseInt(document.querySelector("#TopBox > div.box2.zi2 > div:nth-child(1) > table > tbody > tr:nth-child(6) > td:nth-child(2) > div > div").textContent.replaceAll(',',''))}
+    
     price = document.querySelector("#d03")
     if(!price){
         price = document.querySelector("#d03 > div > div")
